@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ media.title }}</h1>
+
+{% if media.file %}
+    {% if media.file.url|lower endswith ".jpg" or media.file.url|lower endswith ".png" %}
+        <img src="{{ media.file.url }}" alt="{{ media.title }}" width="400">
+    {% else %}
+        <a href="{{ media.file.url }}" download>Download File</a>
+    {% endif %}
+{% endif %}
+
+<p><strong>Tags:</strong> {{ media.tags }}</p>
+<p><strong>Uploaded At:</strong> {{ media.uploaded_at }}</p>
+
+<a href="{% url 'media_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}

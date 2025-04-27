@@ -8,9 +8,9 @@ class MediaFile(models.Model):
         ('file', 'Other'),
     ]
 
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255)  # Ensure this field exists
     file = models.FileField(upload_to='uploads/')
-    media_type = models.CharField(max_length=10, choices=MEDIA_TYPES)
+    media_type = models.CharField(max_length=100, choices=MEDIA_TYPES)
     tags = models.CharField(max_length=255, blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
