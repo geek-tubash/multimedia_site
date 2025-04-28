@@ -4,10 +4,11 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
-    path('', views.media_list, name='media_list'),
     path('upload/', views.upload_media, name='upload_media'),
+    path('', views.media_list, name='media_list'),
     path('edit/<int:pk>/', views.edit_media, name='edit_media'),
     path('delete/<int:pk>/', views.delete_media, name='delete_media'),
+    path('view/<int:pk>/', views.view_media, name='view_media'),  # <-- NEW URL for view details
 ]
 
 if settings.DEBUG:
